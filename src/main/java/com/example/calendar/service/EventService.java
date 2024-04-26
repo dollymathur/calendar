@@ -20,6 +20,10 @@ public class EventService {
         this.bookedSlotService = bookedSlotService;
     }
 
+    public void hello() {
+        System.out.println("Hello from EventService " + Thread.currentThread().getName());
+    }
+
     public int createEvent(List<Integer> userIds, String location, String title, LocalDateTime startTime, LocalDateTime endTime) {
         boolean isSlotAvailable = bookedSlotService.isSlotAvailableForUsers(userIds, startTime, endTime);
         Slot slot = new Slot(startTime, endTime);
